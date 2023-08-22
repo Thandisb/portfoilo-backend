@@ -24,7 +24,7 @@ const updateRestaurantById = async ( id, restaurant) => {
     let { name, location, borough, type, health_rating, price, description, hours, url} = restaurant;
     try {
       const updatedRestaurant = await db.any(
-        `UPDATE restaurants SET name = $1, location = $2, borough = $3, type= $4, health_rating = $5, price = $6, description = $7, hours = $8, url=$9,  WHERE id = $10 RETURNING *`,
+        `UPDATE restaurants SET name = $1, location = $2, borough = $3, type= $4, health_rating = $5, price = $6, description = $7, hours = $8, url=$9 WHERE id = $10 RETURNING *`,
         [name, location, borough, type, health_rating, price, description, hours, url, id]
       );
   
